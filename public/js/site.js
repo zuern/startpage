@@ -9,6 +9,7 @@ var Site = (function($, ko, moment) {
 
     self.greeting = ko.pureComputed(getGreeting);
     self.greetingName = ko.observable();
+    self.navLinks = ko.observable();
     self.xkcd = ko.observable();
     self.forecasts = ko.observable();
 
@@ -20,9 +21,13 @@ var Site = (function($, ko, moment) {
       _vm.xkcd(res.xkcd);
       _vm.forecasts(res.forecasts);
       _vm.greetingName(res.greetingName);
+      _vm.navLinks(res.navLinks);
       registerKOBindings();
       ko.applyBindings(_vm);
       $("body").fadeIn();
+      $("#fullpage").fullpage({
+        anchors: ['search', 'theExtras']
+      });
     })
   }
   // --- Private functions ---------------------------------------------------

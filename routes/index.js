@@ -38,6 +38,7 @@ router.post('/getData', function(req, res) {
       res.json({});
     }
 
+    results.navLinks     = config.navLinks;
     results.greetingName = config.greetingName;
     results.weatherUnits = config.weather.units;
     res.json(results);

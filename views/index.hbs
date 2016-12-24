@@ -3,44 +3,64 @@
 <head>
   <title>Start Page</title>
   <link rel="stylesheet" type="text/css" href="/css/site.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontawesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.fullpage/2.9.2/jquery.fullpage.min.css" integrity="sha256-todkzMhsPzG6/LcY/fQn/2nvO+ykWyDjlpm3g1o+TlE=" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="/packages/meteocons/stylesheet.css">
 </head>
 <body>
-  <div class="greeting">
-    <h1 data-bind="text: greeting()"></h1>
-    <iframe src="https://duckduckgo.com/search.html?kae=d&prefill=Search DuckDuckGo&bgcolor=333&focus=yes" style="overflow:hidden;margin:0;padding:0;" frameborder="0"></iframe>  </div>
-  </div> <!-- /greeting -->
-  <div class="xkcd">
-    <h2 data-bind="text: xkcd().friendlyTitle"></h2>
-    <img data-bind="attr: { src: xkcd().img, alt: xkcd().alt, title: xkcd().alt }" />
-  </div> <!-- /xkcd -->
-  <div class="forecasts" data-bind="foreach: forecasts()">
-    <div class="forecast">
-      <h2 data-bind="text: name"></h2>
-      <div class="summary">
-        <p data-bind="text: daily.summary"></p>
-      </div>
-      <div class="weatherdata">
-        <div class="icon">
-          <a class="weather-link" data-bind="attr: {href: 'https://darksky.net/forecast/' + latitude + '/' + longitude }">
-            <i data-bind="attr: { class: 'weather weather-' + daily.icon }"></i>
-          </a>
-        </div> <!-- /icon -->
-        <div class="current">
-          <p>Feels like: <span data-bind="temperature: currently.apparentTemperature"></span></p>
-          <p class="nexthour">Next Hour: <span data-bind="text: hourly.summary"></span></p>
-        </div> <!-- /current -->
-      </div> <!-- /weatherdata -->
-      <div class="lowhigh">
-        <span class="low">Low: <span data-bind="temperature: daily.data[0].apparentTemperatureMin"></span></span>
-        <span class="high">High: <span data-bind="temperature: daily.data[0].apparentTemperatureMax"></span></span>
-      </div> <!-- /lowhigh -->
-    </div> <!-- /forecast -->
-  </div> <!-- /forecasts -->
+  <nav data-bind="foreach: navLinks()">
+    <a data-bind="attr: { href: url }">
+      <span data-bind="attr: { class: 'fa ' + icon }"></span>
+      <span data-bind="text: text"></span>
+    </a>
+  </nav>
+  <div id="fullpage">
+    <div class="section" data-anchor="search">
+      <div class="greeting">
+        <h1 data-bind="text: greeting()"></h1>
+        <iframe src="https://duckduckgo.com/search.html?kz=1&kac=1&kae=d&prefill=Search DuckDuckGo&bgcolor=333&focus=yes" style="overflow:hidden;margin:0;padding:0;" frameborder="0"></iframe>
+        <a class="nextSection" href="#theExtras">
+          <span class="fa fa-chevron-down"></span>
+        </a>
+      </div> <!-- /greeting -->
+    </div> <!-- /section -->
+    <div class="section" data-anchor="theExtras">
+      <div class="extras">
+        <div class="xkcd">
+          <h2 data-bind="text: xkcd().friendlyTitle"></h2>
+          <img data-bind="attr: { src: xkcd().img, alt: xkcd().alt, title: xkcd().alt }" />
+        </div> <!-- /xkcd -->
+        <div class="forecasts" data-bind="foreach: forecasts()">
+          <div class="forecast">
+            <h2 data-bind="text: name"></h2>
+            <div class="summary">
+              <p data-bind="text: daily.summary"></p>
+            </div> <!-- /summary -->
+            <div class="weatherdata">
+              <div class="icon">
+                <a class="weather-link" data-bind="attr: {href: 'https://darksky.net/forecast/' + latitude + '/' + longitude }">
+                  <i data-bind="attr: { class: 'weather weather-' + daily.icon }"></i>
+                </a>
+              </div> <!-- /icon -->
+              <div class="current">
+                <p>Feels like: <span data-bind="temperature: currently.apparentTemperature"></span></p>
+                <p class="nexthour">Next Hour: <span data-bind="text: hourly.summary"></span></p>
+              </div> <!-- /current -->
+            </div> <!-- /weatherdata -->
+            <div class="lowhigh">
+              <span class="low">Low: <span data-bind="temperature: daily.data[0].apparentTemperatureMin"></span></span>
+              <span class="high">High: <span data-bind="temperature: daily.data[0].apparentTemperatureMax"></span></span>
+            </div> <!-- /lowhigh -->
+          </div> <!-- /forecast -->
+        </div> <!-- /forecasts -->
+      </div> <!-- /extras -->
+    </div>
+  </div> <!-- /fullpage -->
 
   <script src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/knockout/3.4.1/knockout.js" integrity="sha256-PX9zWVaICUCeklczWaS9DLBb9uGN7pCkCT0Kyz1elRo=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/momentjs/2.17.1/moment.min.js" integrity="sha256-Gn7MUQono8LUxTfRA0WZzJgTua52Udm1Ifrk5421zkA=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.fullpage/2.9.2/jquery.fullpage.min.js" integrity="sha256-FhNXP/QhYp5NIDJq8l7fi3Jki2W9Q7bDmyCmpWybsGc=" crossorigin="anonymous"></script>
 
   <script type="text/javascript" src="/js/site.js"></script>
 </body>
