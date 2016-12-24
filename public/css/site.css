@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow|Quicksand|Abel');
+
+body {
+  background: #333;
+  color: #fff;
+  display: flex;
+  font-family: "Quicksand", sans-serif;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1,
+.xkcd h2 {
+  font-family: "Abel", sans-serif;
+}
+
+.xkcd h2 {
+  margin: 0;
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: "Archivo Narrow", sans-serif;
+}
+
+body > div {
+  width: 66%;
+  min-width: 800px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+body {
+  display: none;
+}
+
+.xkcd,
+.forecasts {
+  transition: display 0.5s ease 1s;
+}
+
+.greeting,
+.xkcd {
+  text-align: center;
+}
+
+.greeting > iframe {
+  width: 100%;
+  height: 60px;
+}
+
+.forecasts {
+  display: flex;
+  justify-content: center;
+}
+
+.forecast {
+  padding: 0 15px;
+}
+
+.forecast h2 {
+  margin-bottom: 0;
+}
+
+.weatherdata {
+  display: flex;
+}
+
+.weatherdata .icon {
+  margin-right: 15px;
+}
+
+.summary p {
+  padding: 0;
+  margin: 0;
+}
+
+.current p {
+  margin-bottom: 0;
+}
+
+.nexthour {
+  font-size: 10pt;
+  padding: 0;
+  margin: 0;
+}
+
+.lowhigh {
+  display: flex;
+  justify-content: space-between;
+}
+
+.weather-link {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  font-size: 100px;
+}
