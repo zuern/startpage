@@ -18,7 +18,7 @@ router.post('/getData', function(req, res) {
   async.parallel({
     xkcd: function(callback) {
       xkcd(function(data){
-        data.friendlyTitle = "Comic of the Day: \"" + data.title + "\""; 
+        data.friendlyTitle = "\"" + data.title + "\""; 
         callback(null, data);
       });
     },
