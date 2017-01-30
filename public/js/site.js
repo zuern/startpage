@@ -32,18 +32,15 @@ var Site = (function($, ko, moment) {
   }
   // --- Private functions ---------------------------------------------------
   function getGreeting() {
-    var timeOfDay = Math.round(map(moment().hour(), 1, 24, 0, 2));
-    switch(timeOfDay) {
-      case 0:
+    var timeOfDay = "";
+
+    if (moment().hour() < 12)
       timeOfDay = "Morning";
-      break;
-      case 1:
+    else if (moment().hour() < 16)
       timeOfDay = "Afternoon";
-      break;
-      case 2:
+    else
       timeOfDay = "Evening";
-      break;
-    }
+    
     return "Good " + timeOfDay + ", " + _vm.greetingName();
   }
 
