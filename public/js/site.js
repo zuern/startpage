@@ -7,21 +7,28 @@ var Site = (function($, ko, moment) {
   function ViewModel() {
     var self = this;
 
-    self.greeting = ko.pureComputed(getGreeting);
+    self.greeting     = ko.pureComputed(getGreeting);
     self.greetingName = ko.observable();
-    self.navLinks = ko.observable();
-    self.xkcd = ko.observable();
-    self.forecasts = ko.observable();
+    self.navLinks     = ko.observable();
+    self.xkcd         = ko.observable();
+    self.forecasts    = ko.observable();
+    self.crypto       = ko.observable();
 
     return self;
   }
   // --- API functions -------------------------------------------------------
   function init() {
+    // If secret token was provided, send it with the request
+    var params = getQueryStrings();
+    if (params["secretToken"])
+      _apiUrl += "?secretToken=" + params["secretToken"];
+
     $.post(_apiUrl).done(function(res) {
       _vm.xkcd(res.xkcd);
       _vm.forecasts(res.forecasts);
       _vm.greetingName(res.greetingName);
       _vm.navLinks(res.navLinks);
+      _vm.crypto(res.crypto);
       registerKOBindings();
       ko.applyBindings(_vm);
       $("body").fadeIn();
@@ -57,6 +64,23 @@ var Site = (function($, ko, moment) {
       }
     };
   }
+
+  // https://stackoverflow.com/a/2907506
+  function getQueryStrings() {
+    var assoc  = {};
+    var decode = function (s) { return decodeURIComponent(s.replace(/\+/g, " ")); };
+    var queryString = location.search.substring(1);
+    var keyValues = queryString.split('&');
+
+    for(var i in keyValues) {
+      var key = keyValues[i].split('=');
+      if (key.length > 1) {
+        assoc[decode(key[0])] = decode(key[1]);
+      }
+    }
+
+    return assoc; 
+  } 
   // --- Expose module API ---------------------------------------------------
   return {
   // Public API

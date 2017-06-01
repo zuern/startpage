@@ -94,18 +94,33 @@ body {
    height: 60px; 
 }
 
-.forecasts {
+.cryptos {
+  font-family: "Quicksand", sans-serif;
+}
+
+.cryptos h2 {
+  text-align: center;
+}
+
+.forecasts,
+.cryptos {
   display: flex;
   justify-content: space-around;
 }
 
-.forecast {
+.forecast,
+.crypto {
   padding: 0 15px;
   max-width: 400px;
 }
 
-.forecast h2 {
+.forecast h2,
+.crypto h2 {
   margin-bottom: 0;
+}
+
+.crypto table {
+  text-align: right;
 }
 
 .weatherdata {
