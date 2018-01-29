@@ -1,4 +1,21 @@
-@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow|Quicksand|Abel');
+/*@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow|Quicksand|Abel');*/
+
+
+
+@font-face {
+  font-family: "Archivo Narrow";
+  src: url('/fonts/Archivo_Narrow/ArchivoNarrow-Regular.ttf');
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url('/fonts/Quicksand/Quicksand-Regular.ttf');
+}
+
+@font-face {
+  font-family: "Abel";
+  src: url('/fonts/Abel/Abel-Regular.ttf');
+}
 
 body {
   background-color: #333;
