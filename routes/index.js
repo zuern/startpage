@@ -12,7 +12,7 @@ var express = require('express')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'StartPage' });
 });
 
 /**
@@ -38,22 +38,22 @@ router.post('/getData', function(req, res) {
         callback(null, data);
       }); // end getWeatherForecasts
     },
-    crypto: function(callback) {
-      if (req.query.secretToken !== config.crypto.secretToken) {
-        callback(null, []);
-        return;
-      }
+	  //crypto: function(callback) {
+     //  if (req.query.secretToken !== config.crypto.secretToken) {
+     //    callback(null, []);
+     //    return;
+     //  }
 
-      getCryptoData(function(err, investmentData) {
-        if (err) {
-          console.log(err);
-          callback(err, null);
-        }
+     //  getCryptoData(function(err, investmentData) {
+     //    if (err) {
+     //      console.log(err);
+     //      callback(err, null);
+     //    }
 
-        investmentData = _.sortBy(investmentData, [ function(d){ return d.order } ]);
-        callback(null, investmentData);
-      }); // end getCryptoData
-    }
+     //    investmentData = _.sortBy(investmentData, [ function(d){ return d.order } ]);
+     //    callback(null, investmentData);
+     //  }); // end getCryptoData
+     //}
 
   // This is the section the runs once all of the async tasks above have finished
   }, function(err, results) {
