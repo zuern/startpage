@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Start Page</title>
+  <link rel="stylesheet" type="text/css" href="static/css/site.css">
+  <link rel="stylesheet" href="static/css/font-awesome.min.css">
+</head>
+<body>
+  <nav>{{range .NavLinks}}
+    <a href="{{.URL}}">
+      <span class="fa {{.Class}}"></span>
+      <span>{{.Label}}</span>
+    </a>
+  {{end}}</nav>
+  <div class="page">{{if .XKCD}}
+    <div class="xkcd">
+      <h2>{{.XKCD.safe_title}}</h2>
+      <img src="{{.XKCD.img}}" alt="{{.XKCD.alt}}" title="{{.XKCD.alt}}">
+    </div>
+    {{end}}{{if .Forecasts}}
+    <div class="forecasts">{{range $city, $forecast := .Forecasts}}
+      <div class="forecast">
+        <h2>{{$city}}</h2>
+        {{range $forecast.Alerts}}
+        <div class="alert">
+          <i class="fa fa-exclamation-triangle"></i> <a href="{{.Uri}}">{{.Title}}</a>
+        </div>
+        {{end}}
+        <div class="icon">
+          <a href="https://darksky.net/forecast/{{$forecast.Latitude}}/{{$forecast.Longitude}}">
+            <img src="static/img/climacons/{{$forecast.Daily.Icon}}.svg" alt="{{$forecast.Daily.Summary}}" title="{{$forecast.Daily.Summary}}"></img>
+          </a>
+        </div>{{$data:= index $forecast.Daily.Data 0}}
+        <div class="quick-info">
+          <table>
+            <tr><th>Now:</th><td>{{$forecast.Currently.Summary}}</td></tr>
+            <tr><th>Feels like:</th><td>{{$forecast.Currently.ApparentTemperature}}&#176;C</td></tr>
+            <tr><th>Today:</th><td>{{$data.Summary}}</td></tr>
+          </table>
+        </div>
+        <div class="daily">
+          <span class="low">Low: {{$data.ApparentTemperatureLow}}&#176;C</span>
+          <span class="high">High: {{$data.ApparentTemperatureHigh}}&#176;C</span>
+        </div>
+      </div> <!-- /forecast -->{{end}}
+    </div> <!-- /forecasts -->{{end}}
+  </div> <!-- /page -->
+</body>
+</html>
