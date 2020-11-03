@@ -1,5 +1,2 @@
-config.js
-node_modules
-.idea
-*.swp
-*.log
+bin/
+config.yml

@@ -1,25 +1,22 @@
 /*@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow|Quicksand|Abel');*/
-
-
-
 @font-face {
   font-family: "Archivo Narrow";
-  src: url('/fonts/Archivo_Narrow/ArchivoNarrow-Regular.ttf');
+  src: url('/static/fonts/Archivo_Narrow/ArchivoNarrow-Regular.ttf');
 }
 
 @font-face {
   font-family: "Quicksand";
-  src: url('/fonts/Quicksand/Quicksand-Regular.ttf');
+  src: url('/static/fonts/Quicksand/Quicksand-Regular.ttf');
 }
 
 @font-face {
   font-family: "Abel";
-  src: url('/fonts/Abel/Abel-Regular.ttf');
+  src: url('/static/fonts/Abel/Abel-Regular.ttf');
 }
 
 body {
   background-color: #333;
-  background-image: url('/images/bg.png');
+  background-image: url('/static/img/bg.png');
   color: #fff;
   font-family: "Quicksand", sans-serif;
   padding: 0;
@@ -54,41 +51,22 @@ nav a:hover {
   background: #666;
 }
 
-h1,
-.xkcd h2 {
-  font-family: "Abel", sans-serif;
-}
-
-.xkcd h2 {
+h2 {
   margin: 0;
 }
 
-h2, h3, h4, h5, h6 {
-  font-family: "Archivo Narrow", sans-serif;
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Abel", sans-serif;
 }
 
-.nextSection {
-  color: #fff;
-  font-size: 45px;
-}
-
-.nextSection:hover {
-  text-shadow: 0 0 5px #fff;
-}
-
-.greeting,
-.extras > div {
+.page > div {
   width: 66%;
   min-width: 800px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-body {
-  display: none;
-}
-
-.extras {
+.page {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -97,7 +75,6 @@ body {
   width: 100vw;
 }
 
-.greeting,
 .xkcd {
   text-align: center;
 }
@@ -106,71 +83,52 @@ body {
   max-height: 50vh;
 }
 
-.greeting > iframe {
-  width: 100%;
-   height: 60px; 
-}
-
-.cryptos {
-  font-family: "Quicksand", sans-serif;
-}
-
-.cryptos h2 {
-  text-align: center;
-}
-
-.forecasts,
-.cryptos {
+div.forecasts {
   display: flex;
+	margin-top:25px;
   justify-content: space-around;
 }
 
-.forecast,
-.crypto {
+.forecast {
   padding: 0 15px;
   max-width: 400px;
+	text-align: center;
 }
 
-.forecast h2,
-.crypto h2 {
+.forecast h2 {
   margin-bottom: 0;
 }
 
-.crypto table {
-  text-align: right;
+.forecast .alert a {
+	color: #fff;
+	font-size:14pt;
 }
 
-.weatherdata {
-  display: flex;
+.forecast .icon img {
+	width:275px;
+	margin: -25px 0;
 }
 
-.weatherdata .icon {
-  margin-right: 15px;
-}
-
-.summary p {
-  padding: 0;
+.forecast .quick-info {
   margin: 0;
+	text-align: left;
 }
 
-.current p {
-  margin-bottom: 0;
+.forecast .quick-info table th{
+	text-align: left;
+	padding-right: 10px;
 }
 
-.nexthour {
+.forecast .daily {
   font-size: 10pt;
   padding: 0;
-  margin: 0;
-}
-
-.lowhigh {
+  margin: 10px 0 0 0;
   display: flex;
   justify-content: space-between;
 }
 
-.weather-link {
+.forecast .icon a {
   color: #fff;
   text-decoration: none;
   display: block;
-  font-size: 100px;
 }

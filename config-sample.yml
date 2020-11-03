@@ -1,0 +1,25 @@
+darkskyKey: your-darksky-key-here
+nav:
+  - label: Reddit
+    class: fa-reddit
+    url: https://old.reddit.com
+
+  - label: Twitch
+    class: fa-twitch
+    url: https://twitch.tv
+
+  - label: YouTube
+    class: fa-youtube
+    url: https://youtube.com
+
+  - label: Hacker News
+    class: fa-hacker-news
+    url: https://news.ycombinator.com
+
+  - label: GitLab
+    class: fa-gitlab
+    url: https://gitlab.com/zuern
+locations:
+  - label: Toronto
+    lat: 43.652106
+    long: -79.381538
